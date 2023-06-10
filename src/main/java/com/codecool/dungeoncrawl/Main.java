@@ -83,9 +83,12 @@ public class Main extends Application {
         Cell nextCell = map.getPlayer().getCell().getNeighbor(dx, dy);
         if (nextCell.getType() == CellType.FLOOR) {
             map.getPlayer().move(dx, dy);
+        } else {
+            map.getPlayer().move(0, 0);
+        }
             refresh();
         }
-    }
+
 
     private void refresh() {
         context.setFill(Color.BLACK);
