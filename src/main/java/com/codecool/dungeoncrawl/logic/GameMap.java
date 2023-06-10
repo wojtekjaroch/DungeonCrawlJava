@@ -6,6 +6,7 @@ public class GameMap {
     private int width;
     private int height;
     private Cell[][] cells;
+    // deklaruje prywatne pole cells, które będzie przechowywać dwuwymiarową tablicę obiektów typu Cell.
 
     private Player player;
 

@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl;
 
 import com.codecool.dungeoncrawl.logic.Cell;
+import com.codecool.dungeoncrawl.logic.CellType;
 import com.codecool.dungeoncrawl.logic.GameMap;
 import com.codecool.dungeoncrawl.logic.MapLoader;
 import javafx.application.Application;
@@ -23,6 +24,9 @@ public class Main extends Application {
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
 
+    Label swordLabel = new Label();//WJ
+
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -35,6 +39,9 @@ public class Main extends Application {
 
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
+
+        ui.add(new Label("Sword: "), 0, 30);//WJ
+        ui.add(swordLabel, 1, 0);//WJ
 
         BorderPane borderPane = new BorderPane();
 
@@ -51,23 +58,32 @@ public class Main extends Application {
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
+        int dx = 0;
+        int dy = 0;
+
         switch (keyEvent.getCode()) {
             case UP:
-                map.getPlayer().move(0, -1);
-                refresh();
+                dx = 0;
+                dy = -1;
                 break;
             case DOWN:
-                map.getPlayer().move(0, 1);
-                refresh();
+                dx = 0;
+                dy = 1;
                 break;
             case LEFT:
-                map.getPlayer().move(-1, 0);
-                refresh();
+                dx = -1;
+                dy = 0;
                 break;
             case RIGHT:
-                map.getPlayer().move(1,0);
-                refresh();
+                dx = 1;
+                dy = 0;
                 break;
+        }
+
+        Cell nextCell = map.getPlayer().getCell().getNeighbor(dx, dy);
+        if (nextCell.getType() == CellType.FLOOR) {
+            map.getPlayer().move(dx, dy);
+            refresh();
         }
     }
 
