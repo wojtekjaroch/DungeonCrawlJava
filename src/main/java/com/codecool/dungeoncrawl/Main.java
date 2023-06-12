@@ -52,15 +52,17 @@ public class Main extends Application {
         borderPane.setRight(ui);
 
         Scene scene = new Scene(borderPane);
+        scene.setOnKeyPressed(this::onKeyPressed);
         primaryStage.setScene(scene);
         refresh();
-        scene.setOnKeyPressed(this::onKeyPressed);
 
         primaryStage.setTitle("Dungeon Crawl");
         primaryStage.show();
 
         // pickup button
         Button pickUpButton = new Button("Pick up the item!");
+        pickUpButton.setFocusTraversable(false); // Dodajemy tę linię, aby po uzyciu przycisku, focus wrócił na scenę
+
         pickUpButton.setOnMouseClicked(mouseEvent -> {
             pickUpItem();
         });
@@ -74,15 +76,10 @@ public class Main extends Application {
         mainPanel.getChildren().addAll(canvas, rightMenuPane);
 
         borderPane.setCenter(mainPanel); // Dodajemy mainPanel do centralnej części borderPane
+        canvas.requestFocus();
 
-//        Scene scene = new Scene(borderPane);
-        primaryStage.setScene(scene);
-        refresh();
-        scene.setOnKeyPressed(this::onKeyPressed);
-
-        primaryStage.setTitle("Dungeon Crawl");
-        primaryStage.show();
     }
+
     public void pickUpItem(){
         System.out.println("WYDRUK!!!");
     };
@@ -116,9 +113,8 @@ public class Main extends Application {
         } else {
             map.getPlayer().move(0, 0);
         }
-            refresh();
-        }
-
+        refresh();
+    }
 
     private void refresh() {
         context.setFill(Color.BLACK);
