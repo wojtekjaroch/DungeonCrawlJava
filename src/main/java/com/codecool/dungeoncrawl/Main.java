@@ -13,8 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+
 
 public class Main extends Application {
     GameMap map = MapLoader.loadMap();
@@ -55,8 +58,35 @@ public class Main extends Application {
 
         primaryStage.setTitle("Dungeon Crawl");
         primaryStage.show();
+
+        // pickup button
+        Button pickUpButton = new Button("Pick up the item!");
+        pickUpButton.setOnMouseClicked(mouseEvent -> {
+            pickUpItem();
+        });
+
+        Pane rightMenuPane = new Pane();
+        rightMenuPane.getChildren().addAll(pickUpButton);
+        rightMenuPane.setLayoutX(10);
+        rightMenuPane.setLayoutY(10);
+
+        Pane mainPanel = new Pane();
+        mainPanel.getChildren().addAll(canvas, rightMenuPane);
+
+        borderPane.setCenter(mainPanel); // Dodajemy mainPanel do centralnej części borderPane
+
+//        Scene scene = new Scene(borderPane);
+        primaryStage.setScene(scene);
+        refresh();
+        scene.setOnKeyPressed(this::onKeyPressed);
+
+        primaryStage.setTitle("Dungeon Crawl");
+        primaryStage.show();
     }
-//
+    public void pickUpItem(){
+        System.out.println("WYDRUK!!!");
+    };
+
     private void onKeyPressed(KeyEvent keyEvent) {
         int dx = 0;
         int dy = 0;
