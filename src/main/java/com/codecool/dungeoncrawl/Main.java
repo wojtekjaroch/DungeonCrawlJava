@@ -56,7 +56,7 @@ public class Main extends Application {
         primaryStage.setTitle("Dungeon Crawl");
         primaryStage.show();
     }
-
+//
     private void onKeyPressed(KeyEvent keyEvent) {
         int dx = 0;
         int dy = 0;
