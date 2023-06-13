@@ -40,11 +40,14 @@ public class Main extends Application {
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
 
+//        ui.add(new Label("Health: "), 0, 0);
+//        ui.add(healthLabel, 1, 0);
+
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
 
-        ui.add(new Label("Sword: "), 0, 30);//WJ
-        ui.add(swordLabel, 1, 0);//WJ
+        ui.add(new Label("Sword: "), 0, 2);//WJ
+        ui.add(swordLabel, 1, 2);//WJ
 
         BorderPane borderPane = new BorderPane();
 
@@ -69,8 +72,8 @@ public class Main extends Application {
 
         Pane rightMenuPane = new Pane();
         rightMenuPane.getChildren().addAll(pickUpButton);
-        rightMenuPane.setLayoutX(10);
-        rightMenuPane.setLayoutY(10);
+        rightMenuPane.setLayoutX(810);
+        rightMenuPane.setLayoutY(5);
 
         Pane mainPanel = new Pane();
         mainPanel.getChildren().addAll(canvas, rightMenuPane);
