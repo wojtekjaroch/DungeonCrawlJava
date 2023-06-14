@@ -4,7 +4,7 @@ import com.codecool.dungeoncrawl.logic.Cell;
 import com.codecool.dungeoncrawl.logic.Drawable;
 
 public abstract class Actor implements Drawable {
-    private Cell cell; //deklaruje prywatne pole "cell" typu "Cell". Reprezentuje ono komórkę, w której znajduje się aktor.
+    private static Cell cell; //deklaruje prywatne pole "cell" typu "Cell". Reprezentuje ono komórkę, w której znajduje się aktor.
     private int health = 10;
 
     public Actor(Cell cell) {
@@ -31,7 +31,7 @@ public abstract class Actor implements Drawable {
         return health;
     }
 
-    public Cell getCell() {
+    public static Cell getCell() {
         return cell;
     }
 
