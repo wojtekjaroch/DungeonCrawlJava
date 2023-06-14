@@ -28,6 +28,8 @@ public class Main extends Application {
     Label healthLabel = new Label();
 
     Label swordLabel = new Label();//WJ
+    Label shieldLabel = new Label();//WJ
+    Label keyLabel = new Label();//WJ
 
 
     public static void main(String[] args) {
@@ -45,9 +47,25 @@ public class Main extends Application {
 
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
+//        ui.add(new Label("Health: "), 0, 2);
+//        ui.add(new Label("Health: "), 0, 3);
+//        ui.add(new Label("Health: "), 0, 4);
+//        ui.add(new Label("Health: "), 0, 5);
+//
+//        ui.add(new Label("Health: "), 0, 6);
+//        ui.add(new Label("Health: "), 0, 7);
+//        ui.add(new Label("Health: "), 0, 8);
+//        ui.add(new Label("Health: "), 0, 9);
+//        ui.add(new Label("Health: "), 0, 10);
 
-        ui.add(new Label("Sword: "), 0, 2);//WJ
-        ui.add(swordLabel, 1, 2);//WJ
+        ui.add(new Label("Sword: "), 0, 1);//WJ
+        ui.add(swordLabel, 1, 1);//WJ
+
+        ui.add(new Label("Shield: "), 0, 2);//WJ
+        ui.add(shieldLabel, 1, 2);//WJ
+
+        ui.add(new Label("Key: "), 0, 3);//WJ
+        ui.add(keyLabel, 1, 3);//WJ
 
         BorderPane borderPane = new BorderPane();
 
@@ -73,7 +91,7 @@ public class Main extends Application {
         Pane rightMenuPane = new Pane();
         rightMenuPane.getChildren().addAll(pickUpButton);
         rightMenuPane.setLayoutX(810);
-        rightMenuPane.setLayoutY(5);
+        rightMenuPane.setLayoutY(100);
 
         Pane mainPanel = new Pane();
         mainPanel.getChildren().addAll(canvas, rightMenuPane);
@@ -119,7 +137,7 @@ public class Main extends Application {
         refresh();
     }
 
-    private void refresh() {
+    public void refresh() {
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (int x = 0; x < map.getWidth(); x++) {
