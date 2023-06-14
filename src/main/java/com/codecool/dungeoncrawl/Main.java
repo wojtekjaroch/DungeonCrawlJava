@@ -26,7 +26,6 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
-
     Label swordLabel = new Label();//WJ
     Label shieldLabel = new Label();//WJ
     Label keyLabel = new Label();//WJ
