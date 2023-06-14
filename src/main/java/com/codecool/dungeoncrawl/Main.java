@@ -91,7 +91,7 @@ public class Main extends Application {
         Pane rightMenuPane = new Pane();
         rightMenuPane.getChildren().addAll(pickUpButton);
         rightMenuPane.setLayoutX(810);
-        rightMenuPane.setLayoutY(100);
+        rightMenuPane.setLayoutY(605);
 
         Pane mainPanel = new Pane();
         mainPanel.getChildren().addAll(canvas, rightMenuPane);
