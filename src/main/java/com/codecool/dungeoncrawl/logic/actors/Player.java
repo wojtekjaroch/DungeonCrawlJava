@@ -28,6 +28,8 @@ public class Player extends Actor {
 
         // Pobierz aktualną pozycję gracza
         Position playerPosition = getPosition();
+        System.out.println(playerPosition);
+
 
         // Pobierz pozycję miecza (zakładając, że sword to obiekt klasy Sword)
         Position swordPosition = Sword.getPosition();
