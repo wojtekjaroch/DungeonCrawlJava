@@ -1,35 +1,40 @@
 package com.codecool.dungeoncrawl;
 
-import com.codecool.dungeoncrawl.logic.Cell;
-import com.codecool.dungeoncrawl.logic.CellType;
-import com.codecool.dungeoncrawl.logic.GameMap;
-import com.codecool.dungeoncrawl.logic.MapLoader;
+import com.codecool.dungeoncrawl.logic.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.util.Objects;
 
 public class Main extends Application {
-    GameMap map = MapLoader.loadMap();
-    Canvas canvas = new Canvas(
+    private MediaPlayer mediaPlayer;
+    private ClassLoader classLoader = getClass().getClassLoader();
+
+    private GameMap map = MapLoader.loadMap();
+    private Canvas canvas = new Canvas(
             map.getWidth() * Tiles.TILE_WIDTH,
             map.getHeight() * Tiles.TILE_WIDTH);
-    GraphicsContext context = canvas.getGraphicsContext2D();
-    Label healthLabel = new Label();
-    Label swordLabel = new Label();//WJ
-    Label shieldLabel = new Label();//WJ
-    Label keyLabel = new Label();//WJ
-
+    private GraphicsContext context = canvas.getGraphicsContext2D();
+    private Label healthLabel = new Label();
+    private Label swordLabel = new Label();//WJ
+    private Label shieldLabel = new Label();//WJ
+    private Label keyLabel = new Label();//WJ
+    ListView inventoryList = new ListView();//WJ
 
     public static void main(String[] args) {
         launch(args);
@@ -37,34 +42,40 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GridPane ui = new GridPane();
-        ui.setPrefWidth(200);
-        ui.setPadding(new Insets(10));
+        // Ładujemy plik dźwiękowy
+//        String soundFile = "261491__kradziej__ambinet-hell.mp3";
+//        String soundPath = Objects.requireNonNull(classLoader.getResource(soundFile)).toExternalForm();
+//        Media media = new Media(soundPath);
+//
+//        // Tworzymy odtwarzacz dźwięku i ustawiamy zapętlenie
+//        mediaPlayer = new MediaPlayer(media);
+//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//
+//        // Odtwarzamy dźwięk
+//        mediaPlayer.play();
 
+//        GridPane ui = new GridPane();
+//        ui.setPrefWidth(200);
+//        ui.setPadding(new Insets(10));
+//
 //        ui.add(new Label("Health: "), 0, 0);
 //        ui.add(healthLabel, 1, 0);
 
-        ui.add(new Label("Health: "), 0, 0);
-        ui.add(healthLabel, 1, 0);
-//        ui.add(new Label("Health: "), 0, 2);
-//        ui.add(new Label("Health: "), 0, 3);
-//        ui.add(new Label("Health: "), 0, 4);
-//        ui.add(new Label("Health: "), 0, 5);
+        inventoryList.setFocusTraversable(false);
+        inventoryList.setMaxHeight(150);
+
+        VBox ui = new VBox(new Label("Health: "),healthLabel,new Label("Inventory: "),inventoryList);
+        ui.setPrefWidth(200);
+        ui.setPadding(new Insets(10));
+
+//        ui.add(new Label("Sword: "), 0, 1);//WJ
+//        ui.add(swordLabel, 1, 1);//WJ
 //
-//        ui.add(new Label("Health: "), 0, 6);
-//        ui.add(new Label("Health: "), 0, 7);
-//        ui.add(new Label("Health: "), 0, 8);
-//        ui.add(new Label("Health: "), 0, 9);
-//        ui.add(new Label("Health: "), 0, 10);
-
-        ui.add(new Label("Sword: "), 0, 1);//WJ
-        ui.add(swordLabel, 1, 1);//WJ
-
-        ui.add(new Label("Shield: "), 0, 2);//WJ
-        ui.add(shieldLabel, 1, 2);//WJ
-
-        ui.add(new Label("Key: "), 0, 3);//WJ
-        ui.add(keyLabel, 1, 3);//WJ
+//        ui.add(new Label("Shield: "), 0, 2);//WJ
+//        ui.add(shieldLabel, 1, 2);//WJ
+//
+//        ui.add(new Label("Key: "), 0, 3);//WJ
+//        ui.add(keyLabel, 1, 3);//WJ
 
         BorderPane borderPane = new BorderPane();
 
@@ -81,7 +92,7 @@ public class Main extends Application {
 
         // pickup button
         Button pickUpButton = new Button("Pick up the item!");
-        pickUpButton.setFocusTraversable(false); // Dodajemy tę linię, aby po uzyciu przycisku, focus wrócił na scenę
+        pickUpButton.setFocusTraversable(false);
 
         pickUpButton.setOnMouseClicked(mouseEvent -> {
             pickUpItem();
@@ -95,14 +106,13 @@ public class Main extends Application {
         Pane mainPanel = new Pane();
         mainPanel.getChildren().addAll(canvas, rightMenuPane);
 
-        borderPane.setCenter(mainPanel); // Dodajemy mainPanel do centralnej części borderPane
+        borderPane.setCenter(mainPanel);
         canvas.requestFocus();
-
     }
 
-    public void pickUpItem(){
+    public void pickUpItem() {
         System.out.println("WYDRUK!!!");
-    };
+    }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         int dx = 0;
@@ -150,5 +160,10 @@ public class Main extends Application {
             }
         }
         healthLabel.setText("" + map.getPlayer().getHealth());
+
+        inventoryList.getItems().clear();
+        for(Inventory inv : map.getPlayer().getInventoryList()) {
+            inventoryList.getItems().add(inv.toString());
+        }
     }
 }

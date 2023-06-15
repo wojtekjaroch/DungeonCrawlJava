@@ -9,14 +9,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Sword extends Actor implements Inventory {
-    public Sword(Cell cell) {
+public class OpenDoor extends Actor {
+    public OpenDoor(Cell cell) {
         super(cell);
     }
 
     @Override
     public String getTileName() {
-        return "sword";
+        return "OpenDoor";
     }
 
     public static Position getPosition() {

@@ -1,8 +1,9 @@
 package com.codecool.dungeoncrawl.logic.actors;
 
 import com.codecool.dungeoncrawl.logic.Cell;
+import com.codecool.dungeoncrawl.logic.Inventory;
 
-public class Shield extends Actor {
+public class Shield extends Actor implements Inventory {
     public Shield(Cell cell) {
         super(cell);
     }
