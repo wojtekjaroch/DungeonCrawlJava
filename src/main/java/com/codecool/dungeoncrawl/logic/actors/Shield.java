@@ -12,4 +12,9 @@ public class Shield extends Actor implements Inventory {
     public String getTileName() {
         return "shield";
     }
+
+    @Override
+    public String toString() {
+        return "Shield";
+    }
 }

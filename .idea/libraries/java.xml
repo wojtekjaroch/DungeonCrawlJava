@@ -2,12 +2,14 @@
   <library name="java">
     <CLASSES>
       <root url="jar://$USER_HOME$/Documents/openjfx-20.0.1_windows-x64_bin-sdk/javafx-sdk-20.0.1/lib/javafx.media.jar!/" />
-      <root url="jar://$USER_HOME$/Downloads/intellij-media-player/intellij-media-player/lib/intellij-media-player.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/openjfx-20.0.1_windows-x64_bin-sdk/javafx-sdk-20.0.1/lib/javafx.controls.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files/javafx-media-21-ea+21.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/src/main/java" />
       <root url="file://$PROJECT_DIR$/src/test/java" />
     </SOURCES>
+    <jarDirectory url="jar://$USER_HOME$/Downloads/jar_files/javafx-media-21-ea+21.jar!/" recursive="false" />
   </library>
 </component>

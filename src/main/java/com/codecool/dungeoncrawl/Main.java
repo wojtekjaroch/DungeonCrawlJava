@@ -21,6 +21,7 @@ import javafx.scene.media.MediaPlayer;
 
 import java.util.Objects;
 
+
 public class Main extends Application {
     private MediaPlayer mediaPlayer;
     private ClassLoader classLoader = getClass().getClassLoader();
@@ -42,9 +43,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Ładujemy plik dźwiękowy
-//        String soundFile = "261491__kradziej__ambinet-hell.mp3";
-//        String soundPath = Objects.requireNonNull(classLoader.getResource(soundFile)).toExternalForm();
+//         Ładujemy plik dźwiękowy
+//        String soundFile = "/261491_kradziej_ambinet-hell.mp3";
+//        String soundPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource(soundFile)).toExternalForm();
 //        Media media = new Media(soundPath);
 //
 //        // Tworzymy odtwarzacz dźwięku i ustawiamy zapętlenie

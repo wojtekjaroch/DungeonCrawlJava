@@ -19,6 +19,11 @@ public class Sword extends Actor implements Inventory {
         return "sword";
     }
 
+    @Override
+    public String toString() {
+        return "Sword";
+    }
+
     public static Position getPosition() {
         return new Position(getCell().getX(), getCell().getY());
     }

@@ -12,4 +12,9 @@ public class Key extends Actor implements Inventory {
     public String getTileName() {
         return "key";
     }
+
+    @Override
+    public String toString() {
+        return "Key";
+    }
 }

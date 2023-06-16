@@ -12,4 +12,9 @@ public class LifePoints extends Actor implements Inventory {
     public String getTileName() {
         return "life-points";
     }
+
+    @Override
+    public String toString() {
+        return "Life-points";
+    }
 }
