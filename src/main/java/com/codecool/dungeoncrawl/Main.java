@@ -36,6 +36,11 @@ public class Main extends Application {
     private Label shieldLabel = new Label();//WJ
     private Label keyLabel = new Label();//WJ
     ListView inventoryList = new ListView();//WJ
+    /*ListView inventoryList = new ListView(); - Ta linia kodu tworzy nowy obiekt ListView o nazwie inventoryList.
+    ListView jest komponentem interfejsu użytkownika w bibliotece JavaFX, który wyświetla listę elementów w pionowej
+    kolejności. Oznacza to, że zmienna inventoryList jest obiektem typu ListView, który zostaje utworzony i
+    przygotowany do wyświetlania listy. Po wykonaniu tej linii kodu, mamy nowy obiekt ListView o nazwie inventoryList,
+    który możemy dostosować i używać do wyświetlania elementów listy w naszej aplikacji.*/
 
     public static void main(String[] args) {
         launch(args);
@@ -66,6 +71,8 @@ public class Main extends Application {
         inventoryList.setMaxHeight(150);
 
         VBox ui = new VBox(new Label("Health: "),healthLabel,new Label("Inventory: "),inventoryList);
+        // Po wykonaniu tej linii kodu, mamy nowy obiekt VBox o nazwie ui,
+        // który zawiera elementy Label i ListView, uporządkowane w pionowej kolejności.
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
 
@@ -96,7 +103,11 @@ public class Main extends Application {
         pickUpButton.setFocusTraversable(false);
 
         pickUpButton.setOnMouseClicked(mouseEvent -> {
-            pickUpItem();
+            inventoryList.getItems().clear(); // Usuwa wszystkie elementy z listy
+
+            for (Inventory inv : map.getPlayer().getInventoryList()) {
+                inventoryList.getItems().add(inv.toString());
+            }
         });
 
         Pane rightMenuPane = new Pane();
@@ -162,9 +173,13 @@ public class Main extends Application {
         }
         healthLabel.setText("" + map.getPlayer().getHealth());
 
-        inventoryList.getItems().clear();
-        for(Inventory inv : map.getPlayer().getInventoryList()) {
-            inventoryList.getItems().add(inv.toString());
-        }
+//        inventoryList.getItems().clear(); // usuwa wszystkie elementy z listy
+//        pickUpButton.setOnMouseClicked(mouseEvent -> {
+//        for(Inventory inv : map.getPlayer().getInventoryList())
+//        //odnosi się do obiektu gracza na mapie przez map.getPlayer()) i wywołuje metodę
+//            // getInventoryList(), która zwraca listę elementów Inventory.
+//        {
+//            inventoryList.getItems().add(inv.toString());
+//        }
     }
 }
