@@ -125,7 +125,7 @@ public class Main extends Application {
     public void pickUpItem() {
         System.out.println("WYDRUK!!!");
     }
-
+//
     private void onKeyPressed(KeyEvent keyEvent) {
         int dx = 0;
         int dy = 0;
