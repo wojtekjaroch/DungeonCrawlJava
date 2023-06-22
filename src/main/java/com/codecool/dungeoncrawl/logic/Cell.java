@@ -35,6 +35,10 @@ public class Cell implements Drawable {
         return gameMap.getCell(x + dx, y + dy);
     }
 
+    public Cell getPreviousCell(int dx, int dy) {
+        return gameMap.getCell(x - dx, y - dy);
+    }
+
     @Override
     public String getTileName() {
         return type.getTileName();
@@ -50,5 +54,8 @@ public class Cell implements Drawable {
 
     public Position getPosition() {
         return new Position(x, y);
+    }
+
+    public void performAction() {
     }
 }

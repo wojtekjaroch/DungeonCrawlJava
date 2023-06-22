@@ -19,7 +19,11 @@ import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import java.net.URL;
 import java.util.Objects;
+
+import javafx.util.Duration;
+import java.io.File;
 
 
 public class Main extends Application {
@@ -49,16 +53,25 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //         Ładujemy plik dźwiękowy
-//        String soundFile = "/261491_kradziej_ambinet-hell.mp3";
+//        String soundFile = "src/main/resources/261491_kradziej_ambinet-hell.mp3";
 //        String soundPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource(soundFile)).toExternalForm();
-//        Media media = new Media(soundPath);
+//        System.out.println((getClass().getResource("/261491_kradziej_ambinet-hell.mp3").toString()));
+//        Media media = new Media(getClass().getResource("/261491_kradziej_ambinet-hell.mp3").toURI().getPath());
+
+//        String soundFile = "/261491_kradziej_ambinet-hell.mp3";
+//        URL soundURL = getClass().getResource(soundFile);
+//        if (soundURL != null) {
+//            Media media = new Media(soundURL.toExternalForm());
 //
-//        // Tworzymy odtwarzacz dźwięku i ustawiamy zapętlenie
-//        mediaPlayer = new MediaPlayer(media);
-//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//            // Tworzymy odtwarzacz dźwięku i ustawiamy zapętlenie
+//            mediaPlayer = new MediaPlayer(media);
+//            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 //
-//        // Odtwarzamy dźwięk
-//        mediaPlayer.play();
+//            // Odtwarzamy dźwięk
+//            mediaPlayer.play();
+//        } else {
+//            System.out.println("Nie można znaleźć pliku dźwiękowego: " + soundFile);
+//        }
 
 //        GridPane ui = new GridPane();
 //        ui.setPrefWidth(200);

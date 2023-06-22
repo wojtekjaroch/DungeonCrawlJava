@@ -62,6 +62,7 @@
           <mainClass>com.codecool.dungeoncrawl.Main</mainClass>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 

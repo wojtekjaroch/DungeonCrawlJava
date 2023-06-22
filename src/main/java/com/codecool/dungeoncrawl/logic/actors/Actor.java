@@ -2,6 +2,7 @@ package com.codecool.dungeoncrawl.logic.actors;
 
 import com.codecool.dungeoncrawl.logic.Cell;
 import com.codecool.dungeoncrawl.logic.Drawable;
+import com.codecool.dungeoncrawl.logic.Inventory;
 
 public abstract class Actor implements Drawable {
     private static Cell cell; //deklaruje prywatne pole "cell" typu "Cell". Reprezentuje ono komórkę, w której znajduje się aktor.
@@ -22,10 +23,41 @@ public abstract class Actor implements Drawable {
     */
     public void move(int dx, int dy) {
         Cell nextCell = cell.getNeighbor(dx, dy);
-        cell.setActor(null);
-        nextCell.setActor(this);
-        cell = nextCell;
+        Cell previousCell = cell.getPreviousCell(dx, dy);
+        Actor existingActor = nextCell.getActor();
+        Actor previousActor = previousCell.getActor();
+
+
+        if (existingActor != null && !(existingActor instanceof Player) && !(existingActor instanceof Inventory)) {
+            // Jeśli w kolejnej komórce jest inny aktor, ale nie jest to Player
+            cell.setActor(existingActor);
+            nextCell.setActor(this);
+            cell = nextCell;
+
+            // Jeśli jesteśmy w komórce z innym aktorem, ustawiamy go jako poprzedniego aktora
+            existingActor.setCell(cell);
+        } else if (existingActor != null && existingActor instanceof Inventory) {
+            // Jeśli w kolejnej komórce jest inny aktor, ale nie jest to Inventory
+            cell.setActor(null);
+            nextCell.setActor(this);
+            cell = nextCell;
+
+            // Jeśli jesteśmy w komórce z innym aktorem, ustawiamy go jako poprzedniego aktora
+            existingActor.setCell(cell);
+        } else {
+            // Wykonujemy zmiany bez zachowywania poprzedniego aktora
+            cell.setActor(null);
+            nextCell.setActor(this);
+            cell = nextCell;
+        }
+
     }
+
+
+
+    private void setCell(Cell cell) {
+    }
+
 
     public int getHealth() {
         return health;
