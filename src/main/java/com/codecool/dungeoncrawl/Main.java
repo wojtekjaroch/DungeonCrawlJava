@@ -81,6 +81,12 @@ public class Main extends Application {
 //        ui.add(new Label("Health: "), 0, 0);
 //        ui.add(healthLabel, 1, 0);
 
+        GameMap gameMap = new GameMap(10, 8, CellType.FLOOR);
+        SaveDAO saveDAO = new SaveDAO();
+
+        Saves saves = new Saves(gameMap, saveDAO);
+        saves.init();
+
         inventoryList.setFocusTraversable(false);
         inventoryList.setMaxHeight(150);
 

@@ -1,9 +1,6 @@
 package com.codecool.dungeoncrawl.logic.actors;
 
-import com.codecool.dungeoncrawl.logic.Cell;
-import com.codecool.dungeoncrawl.logic.CellType;
-import com.codecool.dungeoncrawl.logic.Inventory;
-import com.codecool.dungeoncrawl.logic.Position;
+import com.codecool.dungeoncrawl.logic.*;
 
 import java.util.ArrayList;
 
@@ -77,4 +74,7 @@ public class Player extends Actor {
     }
 
 
+    public String getSword() {
+        return GameMap.getPlayer().getSword();
+    }
 }

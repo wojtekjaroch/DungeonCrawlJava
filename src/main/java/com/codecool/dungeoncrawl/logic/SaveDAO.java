@@ -5,7 +5,7 @@ import java.sql.*;
 public class SaveDAO {
 
     private Connection getConnection() throws SQLException {
-        String url = "jdbc:postgresql://localhost:5432/Saves_table";
+        String url = "jdbc:postgresql://localhost:5432/Dungeon_Crawl_Saves.public.Saves_table";
         String username = "postgres";
         String password = "postgres";
         return DriverManager.getConnection(url, username, password);

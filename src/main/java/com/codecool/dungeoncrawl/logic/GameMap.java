@@ -8,7 +8,7 @@ public class GameMap {
     private Cell[][] cells;
     // deklaruje prywatne pole cells, które będzie przechowywać dwuwymiarową tablicę obiektów typu Cell.
 
-    private Player player;
+    private static Player player;
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -29,7 +29,7 @@ public class GameMap {
         this.player = player;
     }
 
-    public Player getPlayer() {
+    public static Player getPlayer() {
         return player;
     }
 
