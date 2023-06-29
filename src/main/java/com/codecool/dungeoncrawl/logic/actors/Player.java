@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl.logic.actors;
 
 import com.codecool.dungeoncrawl.logic.Cell;
+import com.codecool.dungeoncrawl.logic.CellType;
 import com.codecool.dungeoncrawl.logic.Inventory;
 import com.codecool.dungeoncrawl.logic.Position;
 
@@ -33,7 +34,7 @@ public class Player extends Actor {
         this.position = position;
     }
 
-//    public void chceckPosition(int dx, int dy) {
+    //    public void chceckPosition(int dx, int dy) {
 //
 //        Position playerPosition = getPosition();     // Pobierz aktualną pozycję gracza
 //        Position swordPosition = Sword.getPosition(); // Pobierz aktualną pozycję miecza
@@ -53,7 +54,27 @@ public class Player extends Actor {
         if(nextCell.getActor() instanceof Inventory){
             inventoryList.add((Inventory) nextCell.getActor());
         }
+        else if(nextCell.getActor() instanceof Monster){
+            fight(nextCell);
+        }
+
 
         super.move(dx,dy);
     }
+
+    private void fight(Cell nextCell) {
+        int attack = 5;
+
+        if(inventoryList.stream().anyMatch(a->a instanceof Sword)){
+            attack += 2;
+        }
+
+        nextCell.getActor().setHealth(nextCell.getActor().getHealth() - attack);
+
+        if(nextCell.getActor().getHealth() > 0){
+            this.setHealth(this.getHealth() - 2);
+        }
+    }
+
+
 }

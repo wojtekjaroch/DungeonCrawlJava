@@ -1,6 +1,7 @@
 package com.codecool.dungeoncrawl;
 
 import com.codecool.dungeoncrawl.logic.*;
+import com.codecool.dungeoncrawl.logic.actors.Monster;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,8 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+//import javafx.scene.media.Media;
+//import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
 import java.util.Objects;
@@ -27,7 +28,7 @@ import java.io.File;
 
 
 public class Main extends Application {
-    private MediaPlayer mediaPlayer;
+    //private MediaPlayer mediaPlayer;
     private ClassLoader classLoader = getClass().getClassLoader();
 
     private GameMap map = MapLoader.loadMap();
@@ -138,7 +139,7 @@ public class Main extends Application {
     public void pickUpItem() {
         System.out.println("WYDRUK!!!");
     }
-//
+    //
     private void onKeyPressed(KeyEvent keyEvent) {
         int dx = 0;
         int dy = 0;
@@ -163,7 +164,7 @@ public class Main extends Application {
         }
 
         Cell nextCell = map.getPlayer().getCell().getNeighbor(dx, dy);
-        if (nextCell.getType() == CellType.FLOOR) {
+        if (nextCell.getType() == CellType.FLOOR || nextCell.getActor() instanceof Monster) {
             map.getPlayer().move(dx, dy);
         } else {
             map.getPlayer().move(0, 0);

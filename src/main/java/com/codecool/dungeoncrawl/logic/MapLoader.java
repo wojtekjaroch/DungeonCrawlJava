@@ -35,6 +35,10 @@ public class MapLoader {
                             cell.setType(CellType.SKELETON);
                             new Skeleton(cell);
                             break;
+                        case 'r':
+                            cell.setType(CellType.SCORPION);
+                            new Scorpion(cell);
+                            break;
                         case '@':
                             cell.setType(CellType.FLOOR);
                             map.setPlayer(new Player(cell));
@@ -46,6 +50,10 @@ public class MapLoader {
                         case 'k':
                             cell.setType(CellType.FLOOR);
                             new Key(cell);
+                            break;
+                        case 'g':
+                            cell.setType(CellType.GHOST);
+                            new Ghost(cell);
                             break;
                         case 'h':
                             cell.setType(CellType.FLOOR);

@@ -34,8 +34,8 @@ public class Tiles {
         tileMap.put("life-points", new Tile(27, 23));
         tileMap.put("OpenDoor", new Tile(2, 9));
         tileMap.put("ClosedDoor", new Tile(0, 9));
-
-
+        tileMap.put("scorpion", new Tile(24, 5));
+        tileMap.put("ghost", new Tile(24, 8));
 
 
     }

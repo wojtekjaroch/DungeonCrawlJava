@@ -7,6 +7,8 @@ public enum CellType {
     FLOOR("floor"),
 
     SKELETON("skeleton"),
+    SCORPION("scorpion"),
+    GHOST("ghost"),
 
     WALL("wall");
 
