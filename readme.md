@@ -8,14 +8,14 @@ Dungeon Expedition is a roguelike adventure influenced by the pioneering video g
 The gameplay revolves around tiles and turns, presenting players with the challenge of navigating procedurally generated dungeons. Key elements encompass permanent death, a variety of monster behaviors, and interactive items scattered throughout the dungeon.
 
 ## Learning Objectives
-- **Mastery of OOP Concepts: Enhance proficiency in Object-Oriented Programming through practical application.
-- **Application of Design Patterns: Grasp and incorporate layer separation principles for effective game design.
-- **JavaFX Integration: Employ JavaFX for crafting the graphical user interface of the game.
+- Mastery of OOP Concepts: Enhance proficiency in Object-Oriented Programming through practical application.
+- Application of Design Patterns: Grasp and incorporate layer separation principles for effective game design.
+- JavaFX Integration: Employ JavaFX for crafting the graphical user interface of the game.
 
 ## Game Features
-- **Ever-Changing Environments: Experience tile-based, procedurally generated levels with diverse scenery.
-- **Tactical Gameplay: Engage in strategic battles with monsters, collect items, and skillfully navigate through dungeons.
-- **Personalized Characters: Explore the optional feature allowing players to name characters using special cheat codes for a customized touch.
+- Ever-Changing Environments: Experience tile-based, procedurally generated levels with diverse scenery.
+- Tactical Gameplay: Engage in strategic battles with monsters, collect items, and skillfully navigate through dungeons.
+- Personalized Characters: Explore the optional feature allowing players to name characters using special cheat codes for a customized touch.
 
 ## Development Requirements
 **Backend Development**: The game logic is developed in Java, focusing on clean code and OOP principles.
