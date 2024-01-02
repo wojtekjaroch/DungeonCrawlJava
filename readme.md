@@ -2,20 +2,20 @@
 
 ## Introduction
 
-Dungeon Crawl is a roguelike game inspired by the earliest video games of the 70s and tabletop RPGs. This project aims to recreate the thrill of exploring labyrinths, battling monsters, and hunting treasures, all while introducing modern OOP practices.
+Dungeon Expedition is a roguelike adventure influenced by the pioneering video games from the 1970s and tabletop RPGs. The goal of this initiative is to capture the excitement of navigating mazes, engaging in combat with creatures, and seeking valuable treasures, all while incorporating contemporary OOP principles.
 
 ## Project Description
-The game is tile-based and turn-based, challenging players to navigate through procedurally generated dungeons. The key features include permadeath, diverse monster behaviors, and interactive dungeon items.
+The gameplay revolves around tiles and turns, presenting players with the challenge of navigating procedurally generated dungeons. Key elements encompass permanent death, a variety of monster behaviors, and interactive items scattered throughout the dungeon.
 
 ## Learning Objectives
-- **OOP Practices**: Gain more practice in Object-Oriented Programming.
-- **Design Patterns**: Understand and implement layer separation in game design.
-- **JavaFX**: Utilize JavaFX for the game's graphical user interface.
+- **Mastery of OOP Concepts: Enhance proficiency in Object-Oriented Programming through practical application.
+- **Application of Design Patterns: Grasp and incorporate layer separation principles for effective game design.
+- **JavaFX Integration: Employ JavaFX for crafting the graphical user interface of the game.
 
 ## Game Features
-- **Dynamic Environments**: Tile-based, procedurally generated levels with various scenery.
-- **Strategic Gameplay**: ⚔Combat monsters, pick up items, and navigate through dungeons.
-- **Character Customization**: Optional feature to name characters with special cheat codes.
+- **Ever-Changing Environments: Experience tile-based, procedurally generated levels with diverse scenery.
+- **Tactical Gameplay: Engage in strategic battles with monsters, collect items, and skillfully navigate through dungeons.
+- **Personalized Characters: Explore the optional feature allowing players to name characters using special cheat codes for a customized touch.
 
 ## Development Requirements
 **Backend Development**: The game logic is developed in Java, focusing on clean code and OOP principles.
