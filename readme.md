@@ -1,6 +1,7 @@
 ****** Dungeon Crawl Game ******
 
 Introduction
+
 Dungeon Crawl is a roguelike game inspired by the earliest video games of the 70s and tabletop RPGs. This project aims to recreate the thrill of exploring labyrinths, battling monsters, and hunting treasures, all while introducing modern OOP practices.
 
 Project Description
